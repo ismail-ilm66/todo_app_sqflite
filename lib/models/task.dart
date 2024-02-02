@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:todo_app_sqflite/utilities/task_categories.dart';
 
 class Task extends Equatable {
   final String id;
@@ -7,8 +8,9 @@ class Task extends Equatable {
   final String time;
   final String date;
   final bool isCompleted;
-  //final TaskCategory taskCategory;
-  Task({
+  final TaskCategories taskCategory;
+  Task(
+    this.taskCategory, {
     required this.id,
     required this.title,
     required this.note,

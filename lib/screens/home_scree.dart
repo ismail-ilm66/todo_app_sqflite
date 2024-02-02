@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:todo_app_sqflite/data/temp_data.dart';
 import 'package:todo_app_sqflite/utilities/utils.dart';
 import 'package:todo_app_sqflite/widgets/listing_of_tasks.dart';
 import 'package:todo_app_sqflite/widgets/simple_white_text.dart';
@@ -48,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
             top: 170,
             left: 0,
             right: 0,
+            bottom: 0,
             child: SafeArea(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(20),
@@ -55,8 +57,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    const ListOfTask(
-                      tasks: [],
+                    ListOfTask(
+                      tasks: tempData,
                       isCompletedTasksList: false,
                     ),
                     const Gap(10),
@@ -66,16 +68,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           .headlineMedium,
                     ),
                     const Gap(10),
-                    const ListOfTask(
-                      tasks: [],
+                    ListOfTask(
+                      tasks: tempData,
                       isCompletedTasksList: true,
                     ),
                     const Gap(20),
-                    Container(
-                      height: 20,
-                      width: 20,
-                      color: Colors.amberAccent,
-                    ),
                     ElevatedButton(
                       onPressed: () {},
                       child: const Padding(
