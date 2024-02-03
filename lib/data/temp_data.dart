@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:todo_app_sqflite/models/task.dart';
 import 'package:todo_app_sqflite/utilities/task_categories.dart';
 
