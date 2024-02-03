@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:todo_app_sqflite/data/temp_data.dart';
+import 'package:todo_app_sqflite/routes/routes_path.dart';
 import 'package:todo_app_sqflite/utilities/utils.dart';
 import 'package:todo_app_sqflite/widgets/listing_of_tasks.dart';
 import 'package:todo_app_sqflite/widgets/simple_white_text.dart';
 
 class HomeScreen extends StatefulWidget {
+  HomeScreen builder(BuildContext context, GoRouterState state) =>
+      const HomeScreen();
   const HomeScreen({super.key});
 
   @override
@@ -74,7 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const Gap(20),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.go(RoutesPath.createTask);
+                      },
                       child: const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: SimpleWhiteText(

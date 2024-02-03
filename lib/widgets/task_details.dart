@@ -47,7 +47,7 @@ class TaskDetails extends StatelessWidget {
                   children: [
                     Text(
                       'Task to be Completed On ${task.date}',
-                      style: TextStyle(fontWeight: FontWeight.w400),
+                      style: const TextStyle(fontWeight: FontWeight.w400),
                     ),
                     const SizedBox(
                       width: 5,
