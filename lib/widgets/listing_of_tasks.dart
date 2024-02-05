@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app_sqflite/models/task.dart';
 import 'package:todo_app_sqflite/utilities/utils.dart';
+import 'package:todo_app_sqflite/widgets/circle_category_icon_viewer.dart';
 import 'package:todo_app_sqflite/widgets/common_container.dart';
 import 'package:todo_app_sqflite/widgets/task_details.dart';
 
@@ -59,18 +60,17 @@ class ListOfTask extends StatelessWidget {
                   child: Column(
                     children: [
                       ListTile(
-                        leading: CircleAvatar(
-                            backgroundColor: tasks[index]
-                                .taskCategory
-                                .color
-                                .withOpacity(backgroundOpacity),
-                            child: Icon(
-                              tasks[index].taskCategory.icon,
-                              color: tasks[index]
-                                  .taskCategory
-                                  .color
-                                  .withOpacity(iconOpacity),
-                            )),
+                        leading: CircleIconView(
+                          colorCircle: tasks[index]
+                              .taskCategory
+                              .color
+                              .withOpacity(backgroundOpacity),
+                          colorIcon: tasks[index]
+                              .taskCategory
+                              .color
+                              .withOpacity(iconOpacity),
+                          icon: tasks[index].taskCategory.icon,
+                        ),
                         title: Text(
                           tasks[index].title,
                           style: DefaultAppSettings.getTextTheme(context)

@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           Positioned(
-            top: 170,
+            top: 160,
             left: 0,
             right: 0,
             bottom: 0,
@@ -69,7 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       'Completed',
                       style: DefaultAppSettings.getTextTheme(context)
-                          .headlineMedium,
+                          .headlineMedium!
+                          .copyWith(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     const Gap(10),
                     ListOfTask(
