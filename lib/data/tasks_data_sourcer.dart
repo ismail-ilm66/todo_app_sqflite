@@ -1,5 +1,6 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:todo_app_sqflite/utilities/database_keys.dart';
 
 class TasksDataSource {
   static final TasksDataSource _instance = TasksDataSource._();
@@ -27,6 +28,17 @@ class TasksDataSource {
   }
 
   Future<void> _onCreate(Database db, int version) async {
-    await db.execute('CREATE TABLE TASK');
+    await db.execute(
+      '''CREATE TABLE ${DatabaseKeys.dbTable} (${DatabaseKeys.columnId} INTEGER PRIMARY KEY AUTOINCREMENT 
+      ,${DatabaseKeys.columnTitle} TEXT ,
+      ${DatabaseKeys.columnTaskCategory} TEXT ,
+      ${DatabaseKeys.columnNote} TEXT ,
+      ${DatabaseKeys.columnTime} TEXT ,
+      ${DatabaseKeys.columnDate} TEXT ,
+      ${DatabaseKeys.columnIsCompleted} INTEGER ,
+    
+
+      )''',
+    );
   }
 }

@@ -1,4 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
+import 'package:todo_app_sqflite/utilities/application_keys.dart';
+
 import 'package:todo_app_sqflite/utilities/task_categories.dart';
 
 class Task extends Equatable {
@@ -9,8 +14,8 @@ class Task extends Equatable {
   final String date;
   final bool isCompleted;
   final TaskCategories taskCategory;
-  Task(
-    this.taskCategory, {
+  Task({
+    required this.taskCategory,
     required this.id,
     required this.title,
     required this.note,
@@ -22,4 +27,30 @@ class Task extends Equatable {
   @override
   // TODO: implement props
   List<Object?> get props => [id, title, note, time, date, isCompleted];
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      AppKeys.id: id,
+      AppKeys.title: title,
+      AppKeys.note: note,
+      AppKeys.time: time,
+      AppKeys.date: date,
+      AppKeys.isCompleted: isCompleted,
+      AppKeys.taskCategory: taskCategory.name,
+    };
+  }
+
+  factory Task.fromJson(Map<String, dynamic> map) {
+    return Task(
+      id: map[AppKeys.id] as String,
+      title: map[AppKeys.title],
+      note: map[AppKeys.note],
+      time: map[AppKeys.time],
+      date: map[AppKeys.date],
+      isCompleted: map[AppKeys.isCompleted],
+      taskCategory: TaskCategories.stringToTaskCategory(
+        map[AppKeys.taskCategory],
+      ),
+    );
+  }
 }

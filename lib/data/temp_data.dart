@@ -3,7 +3,7 @@ import 'package:todo_app_sqflite/utilities/task_categories.dart';
 
 List<Task> tempData = [
   Task(
-    TaskCategories.work,
+    taskCategory: TaskCategories.work,
     id: '123',
     title: "Dermatologist",
     note: 'Important Appointment',
@@ -12,7 +12,7 @@ List<Task> tempData = [
     isCompleted: false,
   ),
   Task(
-    TaskCategories.education,
+    taskCategory: TaskCategories.education,
     id: '123',
     title: "Revising",
     note: 'To Revise OS',
@@ -21,7 +21,7 @@ List<Task> tempData = [
     isCompleted: true,
   ),
   Task(
-    TaskCategories.personal,
+    taskCategory: TaskCategories.personal,
     id: '123',
     title: "FNCS Finals",
     note: 'Important Appointment',
