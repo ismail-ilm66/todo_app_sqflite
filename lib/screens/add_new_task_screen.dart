@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
-import 'package:todo_app_sqflite/utilities/utils.dart';
 import 'package:todo_app_sqflite/widgets/common_text_field.dart';
 import 'package:todo_app_sqflite/widgets/date_time_picker_view.dart';
 import 'package:todo_app_sqflite/widgets/simple_heading.dart';
