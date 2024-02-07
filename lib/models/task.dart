@@ -2,8 +2,8 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:todo_app_sqflite/utilities/application_keys.dart';
 
+import 'package:todo_app_sqflite/utilities/application_keys.dart';
 import 'package:todo_app_sqflite/utilities/task_categories.dart';
 
 class Task extends Equatable {
@@ -51,6 +51,26 @@ class Task extends Equatable {
       taskCategory: TaskCategories.stringToTaskCategory(
         map[AppKeys.taskCategory],
       ),
+    );
+  }
+
+  Task copyWith({
+    String? id,
+    String? title,
+    String? note,
+    String? time,
+    String? date,
+    bool? isCompleted,
+    TaskCategories? taskCategory,
+  }) {
+    return Task(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      note: note ?? this.note,
+      time: time ?? this.time,
+      date: date ?? this.date,
+      isCompleted: isCompleted ?? this.isCompleted,
+      taskCategory: taskCategory ?? this.taskCategory,
     );
   }
 }
